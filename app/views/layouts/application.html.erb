@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projects</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="is-preload landing">
+  	<!-- Header -->
+		<header id="header">
+			<h1 id="logo" style="margin-left: 30px;">
+				<a href="index.html">
+					<span>
+            <%= image_tag("logo2.png", alt: "logo", style: "height: 30px; padding-top: 10px;")%>
+					</span></a>
+			</h1>
+			<nav id="nav">
+				<ul>
+					<li>
+						<a href="index.html">首頁</a>
+					</li>
+					<li>
+						<a href="#">個人創作</a>
+						<ul>
+							<li>
+								<a href="left-sidebar.html">新支線</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">不太自然參展作品</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">日出東方</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">無聲的所在</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">人像</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">各類演唱會紀實</a>
+						<ul>
+							<li>
+								<a href="no-sidebar.html">春天吶喊</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">大港開唱</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">飢餓藝術家</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">漂浮者MV 劇照</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">態團結音樂節</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">搖滾台中</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">comz專場</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">Hello Nico EP發佈演唱會</a>
+							</li>
+							<li>
+								<a href="no-sidebar.html">Mary See The Future - 2018梅雨季巡迴</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="no-sidebar.html">商業紀實</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+    <%= yield %>
+
+    	<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li>
+					<a href="https://www.facebook.com/NewExtensionSquad" class="icon alt fa-facebook">
+						<span class="label">Facebook</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/newextensionsquad" class="icon alt fa-instagram">
+						<span class="label">Instagram</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.youtube.com/channel/UCGvLnqOqL7iSHBqStY_kbLQ" class="icon alt fa-youtube">
+						<span class="label">Youtube</span>
+					</a>
+				</li>
+				<li>
+					<a href="xaskade@gmail.com" class="icon alt fa-envelope">
+						<span class="label">Email</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled. All rights reserved.</li>
+				<li>Design:
+					<a href="#">Yass</a>
+				</li>
+			</ul>
+		</footer>
+  </body>
+</html>

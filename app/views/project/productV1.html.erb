@@ -1,0 +1,19 @@
+<div class="flickr">
+  <!-- Main -->
+    <div id="main" class="wrapper style1">
+      <div class="container">
+        <header class="major">
+          <h2>新支線</h2>
+          <p></p>
+        </header>
+      </div>
+    </div>
+  <!-- Main -->
+    <ul class="masonry" id="proc">
+    <% @album_1.photo.each do |p| %>
+      <li class="item">
+          <%= link_to(image_tag('loading.svg',data: {"original"=>image_path(p.url_m)}, :class => 'flickr_photo image', :title => p.title, :border => 0)) %>
+      </li>
+    <% end %>
+    </ul>
+</div>
