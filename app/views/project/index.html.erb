@@ -7,7 +7,6 @@
 					<span>新支線 New Extension Squad.</span>
           <%# <%= image_tag("logo2.png", alt: "logo", style: "height: 250px;", class: "logo-img") %>
 				</header>
-				<!-- <span class="image"><img src="images/logo2.png" alt="" /></span> -->
 			</div>
 			<a href="#one" class="goto-next scrolly">Next</a>
 		</section>
@@ -15,7 +14,6 @@
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
 			<span class="image fit main">
-				<%# <img src="images/newExtension/MG_5817-3.jpg" alt="" /> %>
         <%= image_tag("MG_5817-3.jpg", alt:"")%>
 			</span>
 			<div class="content">
@@ -24,18 +22,20 @@
 						<div class="col-6 col-12-medium">
 							<header>
 								<h2>Independent Creation - 創作</h2>
-								<!-- <p>Nascetur eu nibh vestibulum amet gravida nascetur praesent</p> -->
 							</header>
-							<ul class="actions">
-								<li>
-									<a href="left-sidebar.html" class="button">Learn More</a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-6 col-miss">
 							<p>一路敲鑼打鼓的生旦淨末丑，殊不知，一安靜下來就吵到了自己</p>
 							<p>I’m screaming at the end of the drums, I don’t know, I’m quarreling myself when I’m quiet.</p>
 							<p>Model 蔣佳芸</p>
+						</div>
+						<div class="col-6 col-miss">
+							<ul class="actions">
+							<%#= debug @products[0] %>
+								<% @products.each do |p| %>
+								<li>
+									<%= link_to "Product", project_product_path(:id => p) %>
+								</li>
+								<% end %>
+							</ul>
 						</div>
 
 					</div>
@@ -47,7 +47,6 @@
 		<!-- Two -->
 		<section id="two" class="spotlight style2 right">
 			<span class="image fit main">
-				<%# <img src="images/LiveMusic/MG_9396-2 .jpg" alt="" /> %>
         <%= image_tag("MG_9396-2.jpg", alt:"")%>
 			</span>
 			<div class="content">
@@ -58,7 +57,7 @@
 
 				<ul class="actions">
 					<li>
-						<a href="no-sidebar.html" class="button">See More</a>
+						<%= link_to "liveV1", project_liveV1_path() %>
 					</li>
 				</ul>
 			</div>
@@ -68,7 +67,6 @@
 		<!-- Three -->
 		<section id="three" class="spotlight style3 left">
 			<span class="image fit main bottom">
-			<%# 	<img src="images/business/Miz/miz1.jpg" alt="" /> %>
         <%= image_tag("miz1.jpg", alt:"")%>
 			</span>
 			<div class="content">
@@ -79,7 +77,16 @@
 
 				<ul class="actions">
 					<li>
-						<a href="no-sidebar.html" class="button">Learn More</a>
+						<%= link_to "Business-1", project_businessV1_path() %>
+					</li>
+					<li>
+						<%= link_to "Business-2", project_businessV2_path() %>
+					</li>
+					<li>
+						<%= link_to "Business-3", project_businessV3_path() %>
+					</li>
+					<li>
+						<%= link_to "Business-4", project_businessV4_path() %>
 					</li>
 				</ul>
 			</div>
@@ -89,7 +96,6 @@
 		<!-- Four-->
 		<section id="four" class="spotlight style2 right">
 			<span class="image fit main">
-			<%# 	<img src="images/wedding/MG_0609-9 .jpg" alt="" /> %>
         <%= image_tag("MG_0609-9.jpg", alt:"")%>
 			</span>
 			<div class="content">
@@ -100,7 +106,13 @@
 				<!-- <p>仁德腳王</p> -->
 				<ul class="actions">
 					<li>
-						<a href="no-sidebar.html" class="button">Learn More</a>
+						<%= link_to "wedding-1", project_weddingV1_path() %>
+					</li>
+					<li>
+						<%= link_to "wedding-2", project_weddingV2_path() %>
+					</li>
+					<li>
+						<%= link_to "wedding-3", project_weddingV3_path() %>
 					</li>
 				</ul>
 			</div>
@@ -124,13 +136,3 @@
 		</section>
 
 	</div>
-
-	<!-- Scripts -->
-	<%# <script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script> %>

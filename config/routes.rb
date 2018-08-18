@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'project/index'
-
+  root :to => 'project#index'
+  get 'project/product'
   # 個人創作
   get 'project/productV1'
   get 'project/productV2'
