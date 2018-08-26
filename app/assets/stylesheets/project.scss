@@ -86,6 +86,7 @@ input, select, textarea {
 
 	html, body {
 		background: #1c1d26;
+		color: #ffff !important;
 	}
 
 	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -101,8 +102,8 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: rgba(255, 255, 255, 0.75);
-		/* font-family: "Roboto", Helvetica, sans-serif; */
-		font-family: "newEx";
+		font-family: "Roboto", Helvetica, sans-serif;
+		// font-family: "newEx";
 		font-size: 15pt;
 		font-weight: 900;
 		line-height: 1.75em;
@@ -3036,8 +3037,8 @@ a, h2 {
 		}
 
 		.spotlight:before {
-			background-image: url("overlay.png");
-			content: '';
+			// background-image: url("overlay.png");
+			// content: '';
 			display: block;
 			height: 100%;
 			left: 0;
@@ -3046,7 +3047,7 @@ a, h2 {
 		}
 
 		.spotlight .image.main {
-			display: none;
+			// display: none;
 		}
 
 			.spotlight .image.main img {
@@ -4090,28 +4091,33 @@ a, h2 {
 	padding: 0;
 	margin: 0;
 }
+// .item {
+// 	-webkit-box-sizing: border-box;
+// 	-moz-box-sizing: border-box;
+// 	box-sizing: border-box;
+// 	text-align: center;
+// 	color: #FFF;
+// 	float: left;
+// 	overflow: hidden;
+// }
+// .item    { width: 20%; }
 .item {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	text-align: center;
-	color: #FFF;
-	float: left;
-	overflow: hidden;
+    width:  20.3%; 
+    margin: 3px 0.0% 3px 0.0%;
+    border: 1px solid grey;
 }
-.item    { width: 20%; }
-/* .item.w2 { width: 400px; }
-.item.w3 { width: 600px; }
-.item.w4 { width: 800px; }
-.item    { width: 300px; }
-.item.h2 { width: 300px; }
-.item.h3 { width: 300px; }
-.item.h4 { width: 300px; }  */
-img {
-	max-width: 100%;
+.item img {
+	/*display: none;*/
+	display: block;
+	width: 100%;
+	height: auto !important;
+	opacity:1;
+}
+// img {
+// 	max-width: 100%;
 	
-	-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;
-}
+// 	-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;
+// }
 @media screen and (max-width:900px){
 	.item{width: 100%!important;}
 }

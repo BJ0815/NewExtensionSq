@@ -1,138 +1,149 @@
-	<div id="page-wrapper">
-
-		<!-- Banner -->
-		<section id="banner">
-			<div class="content">
-				<header>
+<!-- Banner -->
+<section id="banner">
+	<div class="container-fluid cover-container text-center d-flex flex-column">
+		<div class="row align-items-center justify-content-center flex-fill">
+			<div class="col-12 text-light">
 					<span>新支線 New Extension Squad.</span>
-          <%# <%= image_tag("logo2.png", alt: "logo", style: "height: 250px;", class: "logo-img") %>
-				</header>
 			</div>
-			<a href="#one" class="goto-next scrolly">Next</a>
-		</section>
+		</div>
+	</div>
+	<%# <a href="#one" class="goto-next scrolly">Next</a> %>
+</section>
 
-		<!-- One -->
-		<section id="one" class="spotlight style1 bottom">
-			<span class="image fit main">
-        <%= image_tag("MG_5817-3.jpg", alt:"")%>
-			</span>
-			<div class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col-6 col-12-medium">
-							<header>
-								<h2>Independent Creation - 創作</h2>
-							</header>
-							<p>一路敲鑼打鼓的生旦淨末丑，殊不知，一安靜下來就吵到了自己</p>
-							<p>I’m screaming at the end of the drums, I don’t know, I’m quarreling myself when I’m quiet.</p>
-							<p>Model 蔣佳芸</p>
-						</div>
-						<div class="col-6 col-miss">
-							<ul class="actions">
-							<%#= debug @products[0] %>
-								<% @products.each do |p| %>
-								<li>
-									<%= link_to "Product", project_product_path(:id => p) %>
-								</li>
-								<% end %>
-							</ul>
-						</div>
-
+<!-- One -->
+<section id="one" class="spotlight style1 bottom">
+	<%# <span class="image fit main">
+		<%= image_tag("MG_5817-3.jpg", alt:"")%>
+	<%# </span> %>
+		<div class="container-fluid cover-container text-center d-flex flex-column">
+			<div class="row align-items-end justify-content-center flex-fill">
+				<div class="content col-12 d-flex">
+					<div class="col-6 col-12-medium text-light">
+						<header>
+							<h2>Independent Creation - 創作</h2>
+						</header>
+						<p>一路敲鑼打鼓的生旦淨末丑，殊不知，一安靜下來就吵到了自己</p>
+						<p>I’m screaming at the end of the drums, I don’t know, I’m quarreling myself when I’m quiet.</p>
+						<p>Model 蔣佳芸</p>
+					</div>
+					<div class="col-6 col-miss">
+						<ul class="actions">
+						<%#= debug @products[0] %>
+							<% @products.each do |p| %>
+							<li>
+								<%= link_to "Product", project_product_path(:id => p) %>
+							</li>
+							<% end %>
+						</ul>
 					</div>
 				</div>
 			</div>
-			<a href="#two" class="goto-next scrolly">Next</a>
-		</section>
-
-		<!-- Two -->
-		<section id="two" class="spotlight style2 right">
-			<span class="image fit main">
-        <%= image_tag("MG_9396-2.jpg", alt:"")%>
-			</span>
-			<div class="content">
-				<header>
-					<h2>各類演唱會紀實(音樂祭、樂團專場、MV劇照側拍)</h2>
-					<p>All kinds of concert documentary (music festival, orchestra special, MV stills side shot)</p>
-				</header>
-
-				<ul class="actions">
-					<li>
-						<%= link_to "liveV1", project_liveV1_path() %>
-					</li>
-				</ul>
-			</div>
-			<a href="#three" class="goto-next scrolly">Next</a>
-		</section>
-
-		<!-- Three -->
-		<section id="three" class="spotlight style3 left">
-			<span class="image fit main bottom">
-        <%= image_tag("miz1.jpg", alt:"")%>
-			</span>
-			<div class="content">
-				<header>
-					<h2>商業</h2>
-					<p>Business</p>
-				</header>
-
-				<ul class="actions">
-					<li>
-						<%= link_to "Business-1", project_businessV1_path() %>
-					</li>
-					<li>
-						<%= link_to "Business-2", project_businessV2_path() %>
-					</li>
-					<li>
-						<%= link_to "Business-3", project_businessV3_path() %>
-					</li>
-					<li>
-						<%= link_to "Business-4", project_businessV4_path() %>
-					</li>
-				</ul>
-			</div>
-			<a href="#four" class="goto-next scrolly">Next</a>
-		</section>
-
-		<!-- Four-->
-		<section id="four" class="spotlight style2 right">
-			<span class="image fit main">
-        <%= image_tag("MG_0609-9.jpg", alt:"")%>
-			</span>
-			<div class="content">
-				<header>
-					<h2>結婚紀實</h2>
-					<p>Wedding documentary</p>
-				</header>
-				<!-- <p>仁德腳王</p> -->
-				<ul class="actions">
-					<li>
-						<%= link_to "wedding-1", project_weddingV1_path() %>
-					</li>
-					<li>
-						<%= link_to "wedding-2", project_weddingV2_path() %>
-					</li>
-					<li>
-						<%= link_to "wedding-3", project_weddingV3_path() %>
-					</li>
-				</ul>
-			</div>
-			<a href="#five" class="goto-next scrolly">Next</a>
-		</section>
-
-		<!-- Five -->
-		<section id="five" class="wrapper style2 special fade">
-			<div class="container">
-				<header>
-					<h2>New Extension Squad新支線</h2>
-					<p> - 歡迎異業合作 - </p>
-				</header>
-				<!-- <form method="post" action="#" class="cta">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-								<div class="col-4 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
-							</div>
-						</form> -->
-			</div>
-		</section>
-
+		</div>
 	</div>
+</section>
+
+<!-- Two -->
+<section id="two" class="spotlight style2 right">
+	<span class="image fit main">
+		<%#= image_tag("MG_9396-2.jpg", alt:"")%>
+	</span>
+		<div class="container-fluid cover-container text-center d-flex flex-column">
+			<div class="row align-items-center justify-content-end flex-fill">
+				<div class="content col-4 text-light">
+					<header>
+						<h2>各類演唱會紀實(音樂祭、樂團專場、MV劇照側拍)</h2>
+						<p>All kinds of concert documentary (music festival, orchestra special, MV stills side shot)</p>
+					</header>
+
+					<ul class="actions">
+						<li>
+							<%= link_to "liveV1", project_liveV1_path() %>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%# <a href="#three" class="goto-next scrolly">Next</a> %>
+</section>
+
+<!-- Three -->
+<section id="three" class="spotlight style3 left">
+	<span class="image fit main bottom">
+		<%#= image_tag("miz1.jpg", alt:"")%>
+	</span>
+		<div class="container-fluid cover-container text-center d-flex flex-column">
+			<div class="row align-items-center justify-content-start flex-fill">
+				<div class="content col-4 text-light">
+					<header>
+						<h2>商業</h2>
+						<p>Business</p>
+					</header>
+
+					<ul class="actions">
+						<li>
+							<%= link_to "Business-1", project_businessV1_path() %>
+						</li>
+						<li>
+							<%= link_to "Business-2", project_businessV2_path() %>
+						</li>
+						<li>
+							<%= link_to "Business-3", project_businessV3_path() %>
+						</li>
+						<li>
+							<%= link_to "Business-4", project_businessV4_path() %>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%# <a href="#four" class="goto-next scrolly">Next</a> %>
+</section>
+
+<!-- Four-->
+<section id="four" class="spotlight style4 right">
+	<span class="image fit main">
+		<%#= image_tag("MG_0609-9.jpg", alt:"")%>
+	</span>
+	<div class="container-fluid cover-container text-center d-flex flex-column">
+			<div class="row align-items-center justify-content-end flex-fill">
+				<div class="content col-4 text-light">
+					<header>
+						<h2>結婚紀實</h2>
+						<p>Wedding documentary</p>
+					</header>
+					<!-- <p>仁德腳王</p> -->
+					<ul class="actions">
+						<li>
+							<%= link_to "wedding-1", project_weddingV1_path() %>
+						</li>
+						<li>
+							<%= link_to "wedding-2", project_weddingV2_path() %>
+						</li>
+						<li>
+							<%= link_to "wedding-3", project_weddingV3_path() %>
+						</li>
+					</ul>
+				</div>
+			</div>
+	</div>
+	</div>
+	<%# <a href="#five" class="goto-next scrolly">Next</a> %>
+</section>
+
+<!-- Five -->
+<section id="five" class="wrapper style2 special fade">
+	<div class="container">
+		<header>
+			<h2>New Extension Squad新支線</h2>
+			<p> - 歡迎異業合作 - </p>
+		</header>
+		<!-- <form method="post" action="#" class="cta">
+					<div class="row gtr-uniform gtr-50">
+						<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+						<div class="col-4 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
+					</div>
+				</form> -->
+	</div>
+</section>

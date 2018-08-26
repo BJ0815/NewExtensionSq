@@ -28,10 +28,12 @@ $(window).on('load', function () {
 $(document).on("turbolinks:load", function () {
 	function f_masonry() {
 		$('.masonry').masonry({
-			gutterWidth: 10,
 			itemSelector: '.item',
+			columnWidth: function (containerWidth) {
+				return containerWidth / 12;
+			},
 			isAnimated: true,
-			horizontalOrder: true
+			// horizontalOrder: true
 		});
 	}
 
@@ -43,4 +45,15 @@ $(document).on("turbolinks:load", function () {
 			load: f_masonry,
 		});
 	});
+
+		// $('#flickr').masonry({
+		// 	itemSelector: '.item',
+		// 	columnWidth: function (containerWidth) {
+		// 		return containerWidth / 12;
+		// 	}
+		// });
+		// $('.item img').lazyload({
+		// 	effect: 'fadeIn'
+		// });
+		// $('.item img').trigger('scroll');
 })

@@ -1,7 +1,6 @@
 class ProjectController < ApplicationController
   include ProjectHelper
-  # after_action :render_page
-  before_action :get_params, only: :product
+  # before_action :get_params, only: :product
 
   def index
     @products = [
@@ -37,7 +36,14 @@ class ProjectController < ApplicationController
 
   def product
     album_id = params[:id]
-    render :product2, :locals => {:album_id => album_id }
+    begin
+      albums = flickr.photosets.getPhotos :photoset_id =>  album_id ,:extras => "url_n"
+      info = flickr.photosets.getInfo :photoset_id => album_id
+      title = info.title
+      render :partial => 'photoPage', :locals => { :albums => albums, :info => info, :title => title }
+    rescue Exception
+      render :partial => 'error404'
+    end
   end
 
   # 新支線
