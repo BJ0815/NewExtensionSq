@@ -7,35 +7,29 @@
 			</div>
 		</div>
 	</div>
-	<%# <a href="#one" class="goto-next scrolly">Next</a> %>
 </section>
 
 <!-- One -->
 <section id="one" class="spotlight style1 bottom">
-	<%# <span class="image fit main">
-		<%= image_tag("MG_5817-3.jpg", alt:"")%>
-	<%# </span> %>
-		<div class="container-fluid cover-container text-center d-flex flex-column">
-			<div class="row align-items-end justify-content-center flex-fill">
-				<div class="content col-12 d-flex">
-					<div class="col-6 col-12-medium text-light">
-						<header>
-							<h2>Independent Creation - 創作</h2>
-						</header>
-						<p>一路敲鑼打鼓的生旦淨末丑，殊不知，一安靜下來就吵到了自己</p>
-						<p>I’m screaming at the end of the drums, I don’t know, I’m quarreling myself when I’m quiet.</p>
-						<p>Model 蔣佳芸</p>
-					</div>
-					<div class="col-6 col-miss">
-						<ul class="actions">
-						<%#= debug @products[0] %>
-							<% @products.each do |p| %>
-							<li>
-								<%= link_to "Product", project_product_path(:id => p) %>
-							</li>
-							<% end %>
-						</ul>
-					</div>
+	<div class="container-fluid cover-container text-center d-flex flex-column">
+		<div class="row align-items-end justify-content-center flex-fill">
+			<div class="content col-12 d-flex">
+				<div class="col-6 col-12-medium text-light">
+					<header>
+						<h2>Independent Creation - 創作</h2>
+					</header>
+					<p>一路敲鑼打鼓的生旦淨末丑，殊不知，一安靜下來就吵到了自己</p>
+					<p>I’m screaming at the end of the drums, I don’t know, I’m quarreling myself when I’m quiet.</p>
+					<p>Model 蔣佳芸</p>
+				</div>
+				<div class="col-6 col-miss">
+					<ul class="actions">
+					<% @products.each do |p| %>
+						<li>
+							<%= link_to "Product", products_path(:id => p) %>
+						</li>
+					<% end %>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -44,9 +38,6 @@
 
 <!-- Two -->
 <section id="two" class="spotlight style2 right">
-	<span class="image fit main">
-		<%#= image_tag("MG_9396-2.jpg", alt:"")%>
-	</span>
 		<div class="container-fluid cover-container text-center d-flex flex-column">
 			<div class="row align-items-center justify-content-end flex-fill">
 				<div class="content col-4 text-light">
@@ -56,22 +47,20 @@
 					</header>
 
 					<ul class="actions">
+					<% @lives.each do |p| %>
 						<li>
-							<%= link_to "liveV1", project_liveV1_path() %>
+							<%= link_to "Product", products_path(:id => p) %>
 						</li>
+					<% end %>
 					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
-	<%# <a href="#three" class="goto-next scrolly">Next</a> %>
+	
 </section>
 
 <!-- Three -->
 <section id="three" class="spotlight style3 left">
-	<span class="image fit main bottom">
-		<%#= image_tag("miz1.jpg", alt:"")%>
-	</span>
 		<div class="container-fluid cover-container text-center d-flex flex-column">
 			<div class="row align-items-center justify-content-start flex-fill">
 				<div class="content col-4 text-light">
@@ -81,31 +70,20 @@
 					</header>
 
 					<ul class="actions">
+					<% @businesses.each do |p| %>
 						<li>
-							<%= link_to "Business-1", project_businessV1_path() %>
+							<%= link_to "Product", products_path(:id => p) %>
 						</li>
-						<li>
-							<%= link_to "Business-2", project_businessV2_path() %>
-						</li>
-						<li>
-							<%= link_to "Business-3", project_businessV3_path() %>
-						</li>
-						<li>
-							<%= link_to "Business-4", project_businessV4_path() %>
-						</li>
+					<% end %>
 					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
-	<%# <a href="#four" class="goto-next scrolly">Next</a> %>
+	# <%# <a href="#four" class="goto-next scrolly">Next</a> %>
 </section>
 
 <!-- Four-->
 <section id="four" class="spotlight style4 right">
-	<span class="image fit main">
-		<%#= image_tag("MG_0609-9.jpg", alt:"")%>
-	</span>
 	<div class="container-fluid cover-container text-center d-flex flex-column">
 			<div class="row align-items-center justify-content-end flex-fill">
 				<div class="content col-4 text-light">
@@ -115,26 +93,20 @@
 					</header>
 					<!-- <p>仁德腳王</p> -->
 					<ul class="actions">
+					<% @weddings.each do |p| %>
 						<li>
-							<%= link_to "wedding-1", project_weddingV1_path() %>
+							<%= link_to "Product", products_path(:id => p) %>
 						</li>
-						<li>
-							<%= link_to "wedding-2", project_weddingV2_path() %>
-						</li>
-						<li>
-							<%= link_to "wedding-3", project_weddingV3_path() %>
-						</li>
+					<% end %>
 					</ul>
 				</div>
 			</div>
 	</div>
-	</div>
-	<%# <a href="#five" class="goto-next scrolly">Next</a> %>
 </section>
 
 <!-- Five -->
-<section id="five" class="wrapper style2 special fade">
-	<div class="container">
+<section id="five" class="wrapper style2 special">
+	<div class="container text-center">
 		<header>
 			<h2>New Extension Squad新支線</h2>
 			<p> - 歡迎異業合作 - </p>

@@ -12,7 +12,8 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require jquery.masonry.min
+//= require masonry/masonry.min
+//= require masonry/jquery.imagesloaded.min
 //= require jquery.lazyload
 //= require popper
 //= require bootstrap-sprockets

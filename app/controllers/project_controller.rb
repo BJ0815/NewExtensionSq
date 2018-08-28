@@ -36,14 +36,7 @@ class ProjectController < ApplicationController
 
   def product
     album_id = params[:id]
-    begin
-      albums = flickr.photosets.getPhotos :photoset_id =>  album_id ,:extras => "url_n"
-      info = flickr.photosets.getInfo :photoset_id => album_id
-      title = info.title
-      render :partial => 'photoPage', :locals => { :albums => albums, :info => info, :title => title }
-    rescue Exception
-      render :partial => 'error404'
-    end
+    render :productV2, :locals => { :album_id => album_id}
   end
 
   # 新支線
@@ -242,6 +235,6 @@ class ProjectController < ApplicationController
   private
 
   def get_params
-    # params.require(:post).permit(:id)
+    # params.permit(:id)
   end
 end

@@ -1,6 +1,6 @@
 <div id="flickr">
   <!-- Main -->
-    <div id="main" class="wrapper style1">
+    <div id="main" class="wrapper">
       <div class="container">
         <header class="major">
           <h2><%= title%></h2>
@@ -9,11 +9,17 @@
       </div>
     </div>
   <!-- Main -->
-    <ul class="masonry" id="proc">
-    <% albums.photo.each do |p| %>
-      <li class="item">
-          <%= image_tag('loading.svg',data: {"original"=>image_path(p.url_n)}, :class => 'flickr_photo image', :title => p.title, :border => 0) %>
-      </li>
-    <% end %>
-    </ul>
+    <div id="masonry" class="container-fluid">
+      <div class="row no-gutters">
+      <% albums.photo.each do |p| %>
+        <div class="item col-xs-12 col-md-5 col-lg-3 img-wrapper">
+
+          <%= image_tag('loading.svg',data: {"original"=>image_path(p.url_m)}, :title => p.title, :border => 0) %>
+          <div class="img-overlay">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
 </div>
