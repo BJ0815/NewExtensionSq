@@ -34,10 +34,31 @@ class ProjectController < ApplicationController
     ]
   end
 
+  # 共用瀏覽照片頁面
   def product
     album_id = params[:id]
     render :productV2, :locals => { :album_id => album_id}
   end
+
+  # 分類頁面
+  def gallery_pd
+    @products = [
+      '72157671596816948',
+      '72157691374202464',
+      '72157664586091678',
+      '72157689314292912',
+      '72157691374978194',
+      '72157664587379988',
+      '72157698928904994',
+      '72157697706718151',
+      '72157699356527965'
+    ]
+    for id in @products do
+      
+    end
+    album_id = params[:id]
+  end
+
 
   # 新支線
   def productV1
