@@ -26,10 +26,11 @@
 					<ul class="actions">
 					<% @products.each do |p| %>
 						<li>
-							<%= link_to "Product", products_path(:id => p) %>
+							<% link_to "Product", products_path(:id => p) %>
 						</li>
 					<% end %>
 					</ul>
+					<%= link_to "個人創作頁", project_gallery_product_path() %>
 				</div>
 			</div>
 		</div>
@@ -49,10 +50,11 @@
 					<ul class="actions">
 					<% @lives.each do |p| %>
 						<li>
-							<%= link_to "Product", products_path(:id => p) %>
+							<% link_to "Product", products_path(:id => p) %>
 						</li>
 					<% end %>
 					</ul>
+					<%= link_to "演唱會紀實", project_gallery_live_path() %>
 				</div>
 			</div>
 		</div>
@@ -72,10 +74,11 @@
 					<ul class="actions">
 					<% @businesses.each do |p| %>
 						<li>
-							<%= link_to "Product", products_path(:id => p) %>
+							<% link_to "Product", products_path(:id => p) %>
 						</li>
 					<% end %>
 					</ul>
+					<%= link_to "商業紀實", project_gallery_bussiness_path() %>
 				</div>
 			</div>
 		</div>
@@ -95,10 +98,11 @@
 					<ul class="actions">
 					<% @weddings.each do |p| %>
 						<li>
-							<%= link_to "Product", products_path(:id => p) %>
+							<% link_to "Product", products_path(:id => p) %>
 						</li>
 					<% end %>
 					</ul>
+					<%= link_to "婚禮紀實", project_gallery_wedding_path() %>
 				</div>
 			</div>
 	</div>

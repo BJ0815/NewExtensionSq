@@ -10,7 +10,19 @@ module ProjectHelper
       albums = user_photos_by_album(album_id)
       info = flickr.photosets.getInfo :photoset_id => album_id
       title = info.title
-      render :partial => 'photoPage', :locals => { :albums => albums, :info => info, :title => title }
+      render :partial => 'photoPage', :locals => { :albums => albums, :title => title }
+    rescue Exception
+      render :partial => 'error404'
+    end
+  end
+
+  def render_flickr_photosets_list(user_id,album_ids,title)
+    begin
+      # 所有albums
+      all_albums = flickr.photosets.getList :user_id => user_id, :primary_photo_extras => "url_m"
+      # 取出id符合的album
+      results = all_albums.select { |d| album_ids.include?(d.id) }
+      render :partial => 'gallery', :locals => { :albums => results, :title => title }
     rescue Exception
       render :partial => 'error404'
     end
