@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root :to => 'project#index'
   get '/product/:id' => 'project#product', :as => 'products'
+  get '/project/gallery_product'
+  get '/project/gallery_live'
+  get '/project/gallery_bussiness'
+  get '/project/gallery_wedding'
+
   # 個人創作
   get 'project/productV1'
   get 'project/productV2'

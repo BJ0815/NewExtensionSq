@@ -2,42 +2,90 @@ class ProjectController < ApplicationController
   include ProjectHelper
   # before_action :get_params, only: :product
 
+  USER_ID = '102003626@N07'
+
+  PRODUCTS_ID = [
+    '72157671596816948',
+    '72157691374202464',
+    '72157664586091678',
+    '72157689314292912',
+    '72157691374978194',
+    '72157664587379988',
+    '72157698928904994',
+    '72157697706718151',
+    '72157699356527965'
+  ]
+
+  WEDDINGS_ID = [
+    '72157671471188328',
+    '72157693547049570',
+    '72157699367504775'
+  ]
+
+  BUSINESSES_ID = [
+    '72157675671761441',
+    '72157671481556448',
+    '72157677178014326',
+    '72157699356903405'
+  ]
+
+  LIVES_ID = [
+    '72157673573325473',
+    '72157696176285902'
+  ]
+
   def index
-    @products = [
-      '72157671596816948',
-      '72157691374202464',
-      '72157664586091678',
-      '72157689314292912',
-      '72157691374978194',
-      '72157664587379988',
-      '72157698928904994',
-      '72157697706718151',
-      '72157699356527965'
-    ]
+    @products = PRODUCTS_ID
 
-    @weddings = [
-      '72157671471188328',
-      '72157693547049570',
-      '72157699367504775'
-    ]
+    @weddings = WEDDINGS_ID
 
-    @businesses = [
-      '72157675671761441',
-      '72157671481556448',
-      '72157677178014326',
-      '72157699356903405'
-    ]
+    @businesses = BUSINESSES_ID
 
-    @lives = [
-      '72157673573325473',
-      '72157696176285902'
-    ]
+    @lives = LIVES_ID
   end
 
+  # 作品展示頁（共用)
   def product
     album_id = params[:id]
     render :productV2, :locals => { :album_id => album_id}
   end
+
+  # 個人創作 ＧＡ
+  def gallery_product
+     # 所有albums
+    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
+    # 取出id符合的album
+    @results = all_albums.select { |d| PRODUCTS_ID.include?(d.id) }
+    render :gallery, :locals => { :results => @results}
+  end
+
+  # 演唱會紀實
+  def gallery_live
+     # 所有albums
+    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
+    # 取出id符合的album
+    @results = all_albums.select { |d| LIVES_ID.include?(d.id) }
+    render :gallery, :locals => { :results => @results}
+  end
+
+  # 商業紀實
+  def gallery_bussiness
+     # 所有albums
+    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
+    # 取出id符合的album
+    @results = all_albums.select { |d| BUSINESSES_ID.include?(d.id) }
+    render :gallery, :locals => { :results => @results}
+  end
+
+  # 婚禮紀實
+  def gallery_wedding
+     # 所有albums
+    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
+    # 取出id符合的album
+    @results = all_albums.select { |d| WEDDINGS_ID.include?(d.id) }
+    render :gallery, :locals => { :results => @results}
+  end
+
 
   # 新支線
   def productV1
