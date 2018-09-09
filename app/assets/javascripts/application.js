@@ -17,5 +17,8 @@
 //= require jquery.lazyload
 //= require popper
 //= require bootstrap-sprockets
+//= require swiper/dist/js/swiper
+//= require photoswipe/dist/photoswipe.min
+//= require photoswipe/dist/photoswipe-ui-default.min
 //= require main
 // = require turbolinks
