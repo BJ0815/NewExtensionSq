@@ -58,174 +58,131 @@ $(document).on("turbolinks:load", function () {
 			}
 		);
 
-		// Lightbox
-		var $overlay = $('<div id="overlay"></div>');
-		var $image = $("<img>");
-		var $prevButton = $('<div id="prevButton"><i class="fa fa-chevron-left"></i></div>');
-		var $nextButton = $('<div id="nextButton"><i class="fa fa-chevron-right"></i></div>');
-		var $exitButton = $('<div id="exitButton"><i class="fa fa-times"></i></div>');
+		// photoswipe
+		var items = [];
+		var $pic = $('.photos');
+		$pic.find('img').each(function() {
+			var $img_src = $(this).attr('data-original'),
+					$height = $(this).attr('height'),
+					$width = $(this).attr('width');
 
-		// Add overlay
-		$overlay.append($image).prepend($prevButton).append($nextButton).append($exitButton);
-		$("#flickr").append($overlay);
-
-		// Hide overlay on default
-		$overlay.hide();
-		// When an image is clicked
-		$(".img-overlay").click(function (event) {
-			// Prevents default behavior
-			event.preventDefault();
-			// Adds href attribute to variable
-			var imageLocation = $(this).prev().attr("src");
-			// Add the image src to $image
-			$image.attr("src", imageLocation);
-			// Fade in the overlay
-			$overlay.fadeIn("slow");
-		});
-		// When the overlay is clicked
-		$overlay.click(function () {
-			// Fade out the overlay
-			$(this).fadeOut("slow");
-		});
-
-		// When next button is clicked
-		$nextButton.click(function (event) {
-			// Hide the current image
-			$("#overlay img").hide();
-			// Overlay image location
-			var $currentImgSrc = $("#overlay img").attr("src");
-			// Image with matching location of the overlay image
-			var $currentImg = $('#masonry img[src="' + $currentImgSrc + '"]');
-			// Finds the next image
-			var $nextImg = $($currentImg.closest(".image").next().find("img"));
-			// All of the images in the gallery
-			var $images = $("#masonry img");
-			// If there is a next image
-			if ($nextImg.length > 0) {
-				// Fade in the next image
-				console.log('1');
-				$("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
-			} else {
-				console.log('2');
-				// Otherwise fade in the first image
-				$("#overlay img").attr("src", $($images[0]).attr("src")).fadeIn(800);
+			var item = {
+				src: $img_src,
+				w: $width,
+				h: $height
 			}
-			// Prevents overlay from being hidden
-			event.stopPropagation();
+
+			// item.append(img);
+			items.push(item);
+		});
+
+		var $pswp = $('.pswp')[0];
+		$pic.on('click', 'figure', function (event) {
+			event.preventDefault();
+
+			var $index = $(this).children().data('index');
+			var options = {
+				index: $index,
+				bgOpacity: 0.7,
+				showHideOpacity: true
+			}
+
+			// Initialize PhotoSwipe
+			var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+			lightBox.init();
 		});
 
 
-		// When previous button is clicked
-		$prevButton.click(function (event) {
-			// Hide the current image
-			$("#overlay img").hide();
-			// Overlay image location
-			var $currentImgSrc = $("#overlay img").attr("src");
-			// Image with matching location of the overlay image
-			var $currentImg = $('#masonry img[src="' + $currentImgSrc + '"]');
-			// Finds the next image
-			var $nextImg = $($currentImg.closest(".image").prev().find("img"));
-			// Fade in the next image
-			$("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
-			// Prevents overlay from being hidden
-			event.stopPropagation();
-		});
+		// var $overlay = $('.overlay');
+		// var $overlay = $('<div id="overlay"></div>');
+		// var $images = $('<div class="swiper-container gallery-top"></div>');
+		// var $prevButton = $('<div class="swiper-button-prev"></div>');
+		// var $nextButton = $('<div class="swiper-button-next"></div>');
+		// var $exitButton = $('<div id="exitButton"><i class="fa fa-times"></i></div>');
+		// var $gallery = $('<div class="swiper-container gallery-thumbs"></div>');
 
-		// When the exit button is clicked
-		$exitButton.click(function () {
-			// Fade out the overlay
-			$("#overlay").fadeOut("slow");
-		});
+		// $('.photos').each(function(){
+		// 	var $pic = $(this);
+		// 	var wrapp = $('<div class="swiper-wrapper"></div>');
+		// 	getItems = function() {
+		// 		var items = [];
+		// 		$pic.find('img').each(function() {
+		// 			var img_src = $(this).attr('data-original');
+
+		// 			var item = $('<div class="swiper-slide"></div>');
+		// 			// var img = $('<img>');
+		// 			var urlString = 'url(' + img_src + ')';
+		// 			// img.attr('src', img_src);
+		// 			item.css({"background-image": urlString});
+
+		// 			// item.append(img);
+		// 			items.push(item);
+		// 		});
+		// 		return items;
+		// 	}
+		// 	var items = getItems();
+		// 	var wrapper = wrapp.append(items);
+		// 	$gallery.append(wrapper.clone());
+		// 	$images.append(wrapper.clone());
+		// 	// console.log(items);debugger;
+		// });
+		// $images.append($prevButton).append($nextButton);
+		// $overlay.append($images);
+		// $overlay.append($gallery);
+		// $('#flickr').append($overlay);
+
+		// var galleryTop = new Swiper('.gallery-top', {
+		// 	spaceBetween: 10,
+		// 	loop: true,
+		// 	loopedSlides: 5, //looped slides should be the same
+		// 	// direction: 'horizontal',
+		// 	// mousewheel: true,
+
+		// 	// 如果需要前进后退按钮
+		// 	navigation: {
+		// 		nextEl: '.swiper-button-next',
+		// 		prevEl: '.swiper-button-prev',
+		// 	},
+
+		// 	// on: {
+		// 	// 	click: function() {
+		// 	// 		$overlay.fadeOut("slow");
+		// 	// 	}
+		// 	// }
+		// });
+
+		// var galleryThumbs = new Swiper('.gallery-thumbs', {
+		// 	spaceBetween: 10,
+		// 	slidesPerView: 4,
+		// 	touchRatio: 0.2,
+		// 	loop: true,
+		// 	loopedSlides: 5, //looped slides should be the same
+		// 	slideToClickedSlide: true,
+		// });
+		// galleryTop.controller.control = galleryThumbs;
+		// galleryThumbs.controller.control = galleryTop;
+
+
+		// $overlay.append($mySwiper);
+
+		// $overlay.hide();
+
+		// // When an image is clicked
+		// $(".img-overlay").click(function (event) {
+		// 	// Prevents default behavior
+		// 	event.preventDefault();
+
+		// 	// Fade in the overlay
+		// 	$overlay.fadeIn("slow");
+		// });
+		// // When the exit button is clicked
+		// $exitButton.click(function () {
+		// 	// Fade out the overlay
+		// 	$("#overlay").fadeOut("slow");
+		// });
+
+
 	});
 
 
 })
-
-// $(function() {
-// 	// Gallery image hover
-// 	$(".img-wrapper").hover(
-// 		function () {
-// 			$(this).find(".img-overlay").animate({ opacity: 1 }, 600);
-// 		}, function () {
-// 			$(this).find(".img-overlay").animate({ opacity: 0 }, 600);
-// 		}
-// 	);
-
-// 	// Lightbox
-// 	var $overlay = $('<div id="overlay"></div>');
-// 	var $image = $("<img>");
-// 	var $prevButton = $('<div id="prevButton"><i class="fa fa-chevron-left"></i></div>');
-// 	var $nextButton = $('<div id="nextButton"><i class="fa fa-chevron-right"></i></div>');
-// 	var $exitButton = $('<div id="exitButton"><i class="fa fa-times"></i></div>');
-
-// 	// Add overlay
-// 	$overlay.append($image).prepend($prevButton).append($nextButton).append($exitButton);
-// 	$("#flickr").append($overlay);
-
-// 	// Hide overlay on default
-// 	$overlay.hide();
-// 	// When an image is clicked
-// 	$(".img-overlay").click(function (event) {
-// 		// Prevents default behavior
-// 		event.preventDefault();
-// 		// Adds href attribute to variable
-// 		var imageLocation = $(this).prev().attr("src");
-// 		// Add the image src to $image
-// 		$image.attr("src", imageLocation);
-// 		// Fade in the overlay
-// 		$overlay.fadeIn("slow");
-// 	});
-// 	// When the overlay is clicked
-// 	$overlay.click(function () {
-// 		// Fade out the overlay
-// 		$(this).fadeOut("slow");
-// 	});
-
-// 	// When next button is clicked
-// 	$nextButton.click(function (event) {
-// 		// Hide the current image
-// 		$("#overlay img").hide();
-// 		// Overlay image location
-// 		var $currentImgSrc = $("#overlay img").attr("src");
-// 		// Image with matching location of the overlay image
-// 		var $currentImg = $('#masonry img[src="' + $currentImgSrc + '"]');
-// 		// Finds the next image
-// 		var $nextImg = $($currentImg.closest(".image").next().find("img"));
-// 		// All of the images in the gallery
-// 		var $images = $("#masonry img");
-// 		// If there is a next image
-// 		if ($nextImg.length > 0) {
-// 			// Fade in the next image
-// 			console.log('1');
-// 			$("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
-// 		} else {
-// 			console.log('2');
-// 			// Otherwise fade in the first image
-// 			$("#overlay img").attr("src", $($images[0]).attr("src")).fadeIn(800);
-// 		}
-// 		// Prevents overlay from being hidden
-// 		event.stopPropagation();
-// 	});
-
-// 	// When previous button is clicked
-// 	$prevButton.click(function (event) {
-// 		// Hide the current image
-// 		$("#overlay img").hide();
-// 		// Overlay image location
-// 		var $currentImgSrc = $("#overlay img").attr("src");
-// 		// Image with matching location of the overlay image
-// 		var $currentImg = $('#masonry img[src="' + $currentImgSrc + '"]');
-// 		// Finds the next image
-// 		var $nextImg = $($currentImg.closest(".image").prev().find("img"));
-// 		// Fade in the next image
-// 		$("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
-// 		// Prevents overlay from being hidden
-// 		event.stopPropagation();
-// 	});
-
-// 	// When the exit button is clicked
-// 	$exitButton.click(function () {
-// 		// Fade out the overlay
-// 		$("#overlay").fadeOut("slow");
-// 	});
-// })

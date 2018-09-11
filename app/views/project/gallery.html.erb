@@ -1,22 +1,21 @@
-
 <div class="flickr">
-  <div id="main" class="wrapper">
-    <div class="container">
-      <header class="major">
-        <h2><%= title %></h2>
-        <p></p>
-      </header>
-    </div>
-  </div>
-  <!-- Main -->
-    <div class="container">
-      <div class="row justify-content-center">
-      <% results.each do |p| %>
-        <div class="item col-lg-4">
-          <h6><%= p.title %></h6>
-          <%= link_to(image_tag('loading.svg',data: {"original"=>image_path(p.primary_photo_extras.url_n)}, :class => 'flickr_photo image')) %>
-        </div>
-      <% end %>
+<!-- Main -->
+    <div id="main" class="wrapper">
+      <div class="container">
+        <header class="major">
+          <h2><%= title%></h2>
+          <p></p>
+        </header>
       </div>
     </div>
+  <!-- Main -->
+    <ul class="masonry" id="proc">
+    <% results.each do |p| %>
+      <li class="item">
+        <h3><%= p.title %></h3>
+        <%= link_to(image_tag('loading.svg',data: {"original"=>image_path(p.primary_photo_extras.url_m)}, :class => 'flickr_photo image', :border => 0), products_path(:id => p.id)) %>
+      </li>
+    <% end %>
+    </ul>
+
 </div>

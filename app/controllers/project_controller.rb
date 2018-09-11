@@ -99,7 +99,6 @@ class ProjectController < ApplicationController
     # render :productV1
   end
 
-
   private
 
   def get_params
