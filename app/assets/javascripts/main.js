@@ -33,7 +33,7 @@ $(document).on("turbolinks:load", function () {
 			$container.masonry({
 				itemSelector: '.item',
 				columnWidth: '.item',
-				// isAnimated: true,
+				isAnimated: true,
 				// isFitWidth: true,
 				percentPosition: true,
 				transitionDuration: 0,

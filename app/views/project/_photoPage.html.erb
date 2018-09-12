@@ -9,12 +9,11 @@
       </div>
     </div>
   <!-- Main -->
-    <div id="masonry" class="photos container-fluid">
-      <div class="row no-gutters">
+    <div id="masonry" class="photos">
       <% albums.photo.each_with_index do |p,index| %>
-        <div class="item col-xs-12 col-md-5 col-lg-3 img-wrapper"  itemscope itemtype="http://schema.org/ImageGallery">
+        <div class="item img-wrapper"  itemscope itemtype="http://schema.org/ImageGallery">
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <%= link_to image_tag('loading.svg',data: {"original"=>image_path(p.url_m)}, :title => p.title, :border => 0, :height => p.height_m, :width => p.width_m, :itemprop => "thumbnail"), p.url_m, :itemprop => "contentUrl", :data => { :width => p.width_m, :height => p.height_m, :index => index }%>
+            <%= link_to image_tag('overlay.png',data: {"original"=>image_path(p.url_m)}, :title => p.title, :border => 0, :height => p.height_m, :width => p.width_m, :itemprop => "thumbnail"), p.url_m, :itemprop => "contentUrl", :data => { :width => p.width_m, :height => p.height_m, :index => index }%>
             <%#= image_tag('loading.svg',data: {"original"=>image_path(p.url_m)}, :title => p.title, :border => 0, :height => p.height_m, :width => p.width_m) %>
             <%# <div class="img-overlay">
               <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -22,7 +21,6 @@
           </figure>
         </div>
       <% end %>
-      </div>
     </div>
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="pswp__bg"></div>
