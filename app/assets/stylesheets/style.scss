@@ -666,6 +666,12 @@ ol, ul {
 
 	.item {
 		width: 33.33333%;
+
+		.gallery-content {
+			position: absolute;
+			left: 49.5%;
+			top: 49.5%;
+		}
 	}
 	
 	.item img {

@@ -9,13 +9,15 @@
       </div>
     </div>
   <!-- Main -->
-    <ul class="masonry" id="proc">
+    <div class="proc" id="masonry">
     <% results.each do |p| %>
-      <li class="item">
-        <h3><%= p.title %></h3>
+      <div class="item">
+        <div class="gallery-content">
+          <p><%= p.title %></p>
+        </div>
         <%= link_to(image_tag('loading.svg',data: {"original"=>image_path(p.primary_photo_extras.url_m)}, :class => 'flickr_photo image', :border => 0), products_path(:id => p.id)) %>
-      </li>
+      </div>
     <% end %>
-    </ul>
+    </div>
 
 </div>

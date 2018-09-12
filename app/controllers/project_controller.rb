@@ -108,7 +108,7 @@ class ProjectController < ApplicationController
   def render_gallery(albums_id,title)
     begin
       # 所有albums
-      all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_n"
+      all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
       # 取出id符合的album
       results = all_albums.select { |d| albums_id.include?(d.id) }
       render :gallery, :locals => { :results => results, :title => title}
