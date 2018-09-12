@@ -61,10 +61,10 @@ $(document).on("turbolinks:load", function () {
 		// photoswipe
 		var items = [];
 		var $pic = $('.photos');
-		$pic.find('img').each(function() {
-			var $img_src = $(this).attr('data-original'),
-					$height = $(this).attr('height'),
-					$width = $(this).attr('width');
+		$pic.find('a').each(function() {
+			var $img_src = $(this).data('src'),
+					$height = $(this).data('height'),
+					$width = $(this).data('width');
 
 			var item = {
 				src: $img_src,

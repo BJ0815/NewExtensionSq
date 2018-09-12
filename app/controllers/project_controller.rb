@@ -1,5 +1,5 @@
 class ProjectController < ApplicationController
-  include ProjectHelper
+  # include ProjectHelper
   # before_action :get_params, only: :product
 
   USER_ID = '102003626@N07'
@@ -51,41 +51,24 @@ class ProjectController < ApplicationController
     render :productV2, :locals => { :album_id => album_id}
   end
 
-
   # 個人創作 ＧＡ
-  def gallery_product
-     # 所有albums
-    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
-    # 取出id符合的album
-    @results = all_albums.select { |d| PRODUCTS_ID.include?(d.id) }
-    render :gallery, :locals => { :results => @results, :title => '個人創作'}
+  def gallery_product 
+    render_gallery(PRODUCTS_ID,"個人創作")
   end
 
   # 演唱會紀實
   def gallery_live
-     # 所有albums
-    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
-    # 取出id符合的album
-    @results = all_albums.select { |d| LIVES_ID.include?(d.id) }
-    render :gallery, :locals => { :results => @results, :title => '演唱會紀實'}
+    render_gallery(LIVES_ID,"演唱會紀實")
   end
 
   # 商業紀實
   def gallery_bussiness
-     # 所有albums
-    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
-    # 取出id符合的album
-    @results = all_albums.select { |d| BUSINESSES_ID.include?(d.id) }
-    render :gallery, :locals => { :results => @results, :titlke => '商業紀實'}
+    render_gallery(BUSINESSES_ID,"商業紀實")
   end
 
   # 婚禮紀實
   def gallery_wedding
-     # 所有albums
-    all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_m"
-    # 取出id符合的album
-    @results = all_albums.select { |d| WEDDINGS_ID.include?(d.id) }
-    render :gallery, :locals => { :results => @results, :title => '婚禮紀實'}
+    render_gallery(WEDDINGS_ID,"婚禮紀實")
   end
 
 
@@ -120,5 +103,17 @@ class ProjectController < ApplicationController
 
   def get_params
     # params.permit(:id)
+  end
+
+  def render_gallery(albums_id,title)
+    begin
+      # 所有albums
+      all_albums = flickr.photosets.getList :user_id => USER_ID, :primary_photo_extras => "url_n"
+      # 取出id符合的album
+      results = all_albums.select { |d| albums_id.include?(d.id) }
+      render :gallery, :locals => { :results => results, :title => title}
+    rescue Exception
+      render :partial => 'error404'
+    end
   end
 end

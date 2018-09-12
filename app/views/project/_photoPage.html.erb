@@ -13,7 +13,7 @@
       <% albums.photo.each_with_index do |p,index| %>
         <div class="item img-wrapper"  itemscope itemtype="http://schema.org/ImageGallery">
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <%= link_to image_tag('overlay.png',data: {"original"=>image_path(p.url_m)}, :title => p.title, :border => 0, :height => p.height_m, :width => p.width_m, :itemprop => "thumbnail"), p.url_m, :itemprop => "contentUrl", :data => { :width => p.width_m, :height => p.height_m, :index => index }%>
+            <%= link_to image_tag('overlay.png',data: {"original"=>image_path(p.url_m)}, :title => p.title, :border => 0, :height => p.height_m, :width => p.width_m, :itemprop => "thumbnail"), p.url_m, :itemprop => "contentUrl", :data => { :src => p.url_c, :width => p.width_c, :height => p.height_c , :index => index }%>
             <%#= image_tag('loading.svg',data: {"original"=>image_path(p.url_m)}, :title => p.title, :border => 0, :height => p.height_m, :width => p.width_m) %>
             <%# <div class="img-overlay">
               <i class="fa fa-plus-circle" aria-hidden="true"></i>
